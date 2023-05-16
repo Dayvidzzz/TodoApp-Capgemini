@@ -216,7 +216,7 @@ public class TaskController {
         return tasks;
     }
 
-    public void removeById(int id) {
+    public void removeById(int taskId) {
 
         String sql = "DELETE FROM tasks WHERE id = ?";
 
@@ -226,7 +226,7 @@ public class TaskController {
         try {
             conn = ConnectionFactory.getConnection();
             stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, id);
+            stmt.setInt(1, taskId);
             stmt.execute();
         } catch (SQLException ex) {
             throw new RuntimeException("Erro ao deletar a tarefa", ex);
