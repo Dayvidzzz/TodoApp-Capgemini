@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controller;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Task;
 import util.ConnectionFactory;
-
 
 public class TaskController {
 
@@ -59,7 +59,7 @@ public class TaskController {
 
         String sql = "UPDATE tasks SET idProject = ?"
                 + ", name = ?"
-                + ", description = ?"               
+                + ", description = ?"
                 + ", notes = ?"
                 + ", deadline = ?"
                 + ", completed = ?"
@@ -76,15 +76,15 @@ public class TaskController {
             //Cria um PreparedStatment, classe usada para executar a query
             stmt = conn.prepareStatement(sql);
 
-            stmt.setInt     (1, task.getIdProject());
-            stmt.setString  (2, task.getName());
-            stmt.setString  (3, task.getDescription());            
-            stmt.setString  (4, task.getNotes());
-            stmt.setDate    (5, new java.sql.Date(task.getDeadline().getTime()));
-            stmt.setBoolean (6, task.isCompleted());
-            stmt.setDate    (7, new java.sql.Date(task.getCreatedAt().getTime()));
-            stmt.setDate    (8, new java.sql.Date(task.getUpdatedAt().getTime()));
-            stmt.setInt     (9, task.getId());
+            stmt.setInt(1, task.getIdProject());
+            stmt.setString(2, task.getName());
+            stmt.setString(3, task.getDescription());
+            stmt.setString(4, task.getNotes());
+            stmt.setDate(5, new java.sql.Date(task.getDeadline().getTime()));
+            stmt.setBoolean(6, task.isCompleted());
+            stmt.setDate(7, new java.sql.Date(task.getCreatedAt().getTime()));
+            stmt.setDate(8, new java.sql.Date(task.getUpdatedAt().getTime()));
+            stmt.setInt(9, task.getId());
 
             //Executa a sql para inser��o dos dados
             stmt.execute();
@@ -244,7 +244,5 @@ public class TaskController {
         }
 
     }
-
-   
 
 }
